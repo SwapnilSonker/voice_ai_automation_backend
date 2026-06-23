@@ -2,7 +2,9 @@ from sqlmodel import SQLModel, Field, Session, create_engine, select
 from typing import Optional
 from datetime import datetime
 
-DATABASE_URL = "sqlite:///./appointments.db"
+import os
+
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./appointments.db")
 engine = create_engine(DATABASE_URL, echo=False)
 
 
